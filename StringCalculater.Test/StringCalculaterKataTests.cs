@@ -11,5 +11,13 @@ namespace StringCalculator.Core.Test
             Assert.Equal(0, result);
 
         }
+        [Fact]
+        public void OneStringArugmentForAdd()
+        {
+            var stringCalculater = new StringCalculator();
+            int result = stringCalculater.add("1");
+            Assert.Equal(1, result);
+
+        }
     }
 }
