@@ -19,8 +19,8 @@ namespace StringCalculator.Core.Test
         [Fact]
         public void OneStringArugmentForAdd()
         {
-            int result = stringCalculater.add("1");
-            Assert.Equal(1, result);
+            int result = stringCalculater.add("12");
+            Assert.Equal(12, result);
 
         }
         [Fact]
@@ -43,7 +43,7 @@ namespace StringCalculator.Core.Test
         [Fact]
         public void handleNewLineDelimeter()
         {
-            int result = stringCalculater.add("1\n2,3");
+            int result = stringCalculater.add("1\n,");
             Assert.Equal(6, result);
 
         }
