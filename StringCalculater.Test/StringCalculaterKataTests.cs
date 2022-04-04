@@ -3,10 +3,15 @@ namespace StringCalculator.Core.Test
 {
     public class StringCalaculaterKataTests
     {
+        StringCalculator stringCalculater;
+        public StringCalaculaterKataTests()
+        {
+             stringCalculater = new StringCalculator();
+
+        }
         [Fact]
         public void EmptyStringArugmentForAdd()
         {
-            var stringCalculater = new StringCalculator();
             int result = stringCalculater.add("");
             Assert.Equal(0, result);
 
@@ -14,7 +19,6 @@ namespace StringCalculator.Core.Test
         [Fact]
         public void OneStringArugmentForAdd()
         {
-            var stringCalculater = new StringCalculator();
             int result = stringCalculater.add("1");
             Assert.Equal(1, result);
 
@@ -22,9 +26,16 @@ namespace StringCalculator.Core.Test
         [Fact]
         public void TwoStringArugmentForAdd()
         {
-            var stringCalculater = new StringCalculator();
             int result = stringCalculater.add("2,4");
             Assert.Equal(6, result);
+
+        }
+        [Theory]
+        [InlineData("2,4,1")]
+        public void ManyStringArugmentForAdd(string InputString )
+        {
+            int result = stringCalculater.add(InputString);
+            Assert.Equal(7, result);
 
         }
     }
