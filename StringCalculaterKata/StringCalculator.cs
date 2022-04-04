@@ -14,11 +14,9 @@ namespace StringCalculator.Core
                 foreach (String sub in numbers)
                 {
                     number += int.Parse(sub);
-                    
                 }
                 return number ;
             }
-          
         }
     }
 }

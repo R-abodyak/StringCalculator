@@ -31,11 +31,13 @@ namespace StringCalculator.Core.Test
 
         }
         [Theory]
-        [InlineData("2,4,1")]
-        public void ManyStringArugmentForAdd(string InputString )
+        [InlineData("2,4,1",7)]
+        [InlineData("2,4,1,1",8)]
+        [InlineData("2,4,1,1,1",9)]
+        public void ManyStringArugmentForAdd(string InputString , int expectedAnswer )
         {
             int result = stringCalculater.add(InputString);
-            Assert.Equal(7, result);
+            Assert.Equal(expectedAnswer, result);
 
         }
     }
