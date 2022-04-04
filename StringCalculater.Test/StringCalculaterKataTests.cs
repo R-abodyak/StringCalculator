@@ -40,5 +40,12 @@ namespace StringCalculator.Core.Test
             Assert.Equal(expectedAnswer, result);
 
         }
+        [Fact]
+        public void handleNewLineDelimeter()
+        {
+            int result = stringCalculater.add("1\n2,3");
+            Assert.Equal(6, result);
+
+        }
     }
 }
