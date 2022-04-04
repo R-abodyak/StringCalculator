@@ -13,7 +13,9 @@ namespace StringCalculator.Core
                 string[] numbers = v.Split(",");
                 foreach (String sub in numbers)
                 {
-                    number += int.Parse(sub);
+                    string[] SubOfSub = sub.Split("\n");
+                    foreach (String i in SubOfSub)
+                        number += int.Parse(i);
                 }
                 return number ;
             }
