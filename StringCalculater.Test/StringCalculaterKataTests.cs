@@ -19,5 +19,13 @@ namespace StringCalculator.Core.Test
             Assert.Equal(1, result);
 
         }
+        [Fact]
+        public void TwoStringArugmentForAdd()
+        {
+            var stringCalculater = new StringCalculator();
+            int result = stringCalculater.add("1,4");
+            Assert.Equal(5, result);
+
+        }
     }
 }
