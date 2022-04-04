@@ -23,8 +23,8 @@ namespace StringCalculator.Core.Test
         public void TwoStringArugmentForAdd()
         {
             var stringCalculater = new StringCalculator();
-            int result = stringCalculater.add("1,4");
-            Assert.Equal(5, result);
+            int result = stringCalculater.add("2,4");
+            Assert.Equal(6, result);
 
         }
     }
