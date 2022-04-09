@@ -7,28 +7,24 @@ namespace StringCalculator.Core.Test
         public StringCalaculaterKataTests()
         {
              stringCalculater = new StringCalculator();
-
         }
         [Fact]
         public void EmptyStringArugmentForAdd()
         {
             int result = stringCalculater.add("");
             Assert.Equal(0, result);
-
         }
         [Fact]
         public void OneStringArugmentForAdd()
         {
             int result = stringCalculater.add("12");
             Assert.Equal(12, result);
-
         }
         [Fact]
         public void TwoStringArugmentForAdd()
         {
             int result = stringCalculater.add("2,4");
             Assert.Equal(6, result);
-
         }
         [Theory]
         [InlineData("2,4,1",7)]
@@ -38,14 +34,12 @@ namespace StringCalculator.Core.Test
         {
             int result = stringCalculater.add(InputString);
             Assert.Equal(expectedAnswer, result);
-
         }
         [Fact]
         public void handleNewLineDelimeter()
         {
-            int result = stringCalculater.add("1\n,");
+            int result = stringCalculater.add("1\n2,3");
             Assert.Equal(6, result);
-
         }
     }
 }
