@@ -41,5 +41,13 @@ namespace StringCalculator.Core.Test
             int result = stringCalculater.add("1\n2,3");
             Assert.Equal(6, result);
         }
+        [Theory]
+        [InlineData("//;\n1;2", 3)]
+        public void SupportAnyDelimeter(string input ,int output)
+        {
+            int result = stringCalculater.add(input);
+            Assert.Equal(output, result);
+        }
+
     }
 }
