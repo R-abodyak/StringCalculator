@@ -49,22 +49,25 @@ namespace StringCalculator.Core.Test
             int result = stringCalculater.add(input);
             Assert.Equal(output, result);
         }
-
         [Theory]
         [InlineData("-1,2,3", "negatives are not allowed :-1")]
         [InlineData("//;\n-1;2", "negatives are not allowed :-1")]
         public void NegativeNumberTest(string input, string output)
         {   //write testing that check throwing exception 
-
             Action act = () => stringCalculater.add(input);
             //assert
             // The exception that is thrown when one of the arguments provided to a method is not valid.
             ArgumentException exception = Assert.Throws<ArgumentException>(act);
             //The thrown exception can be used for even more detailed assertions.
             Assert.Equal(output, exception.Message);
-
-
-
+        }
+        [Theory]
+        [InlineData("//;\n1000;2", 2)]
+        [InlineData("//*\n5*1000", 5)]
+        public void handleBigNumbers(string InputString, int expectedAnswer)
+        {
+            int result = stringCalculater.add(InputString);
+            Assert.Equal(expectedAnswer, result);
         }
     }
 }
