@@ -35,6 +35,7 @@ namespace StringCalculator.Core
                     {
                         NegativeNumbersList.Add(number);
                     }
+                   
                     number += int.Parse(i);
                 }
             }
