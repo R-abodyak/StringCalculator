@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace StringCalculator.Core
 {
     public class StringCalculator
@@ -22,14 +24,39 @@ namespace StringCalculator.Core
         private static int Delimate(string v,string delimeter)
         {
             int number = 0;
+            List<int> NegativeNumbersList = new List<int>();
             string[] numbers = v.Split(delimeter);
             foreach (String sub in numbers)
             {
                 string[] SubOfSub = sub.Split("\n");
                 foreach (String i in SubOfSub)
+                {
+                    if (number < 0)
+                    {
+                        NegativeNumbersList.Add(number);
+                    }
                     number += int.Parse(i);
+                }
             }
+            CheckForNegative(NegativeNumbersList);
             return number;
+        }
+
+        private static void CheckForNegative(List<int> NegativeNumbersList)
+        {
+            if (NegativeNumbersList.Count > 0)
+            {
+                String message = String.Empty;
+                foreach (int i in NegativeNumbersList)
+                {
+                    message += i + ",";
+                }
+                message = message.Remove(message.Length - 1);
+                throw new ArgumentException
+                    ("negatives are not allowed :" + message);
+
+
+            }
         }
     }
 }
