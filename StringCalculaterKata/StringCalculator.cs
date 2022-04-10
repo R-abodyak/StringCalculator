@@ -36,15 +36,22 @@ namespace StringCalculator.Core
                     {
                         NegativeNumbersList.Add(Num);
                     }
-                    if(Num >= 1000)
-                    {
-                        Num = 0;
-                    }
-                     number += Num;
+                    Num = checkForBigNumbers(Num);
+                    number += Num;
                 }
             }
             CheckForNegative(NegativeNumbersList);
             return number;
+        }
+
+        private static int checkForBigNumbers(int Num)
+        {
+            if (Num >= 1000)
+            {
+                Num = 0;
+            }
+
+            return Num;
         }
 
         private static void CheckForNegative(List<int> NegativeNumbersList)
