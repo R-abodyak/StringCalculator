@@ -24,7 +24,7 @@ namespace StringCalculator.Core
         private static int Delimate(string v,string delimeter)
         {
             int number = 0;
-            List<int> NegativeNumbersList= new List<int>();
+            List<int> NegativeNumbersList = new List<int>();
             string[] numbers = v.Split(delimeter);
             foreach (String sub in numbers)
             {
@@ -35,23 +35,28 @@ namespace StringCalculator.Core
                     {
                         NegativeNumbersList.Add(number);
                     }
-                     number += int.Parse(i); 
+                    number += int.Parse(i);
                 }
             }
-            if(NegativeNumbersList.Count >0)
-            { 
-                String message=String.Empty;
+            CheckForNegative(NegativeNumbersList);
+            return number;
+        }
+
+        private static void CheckForNegative(List<int> NegativeNumbersList)
+        {
+            if (NegativeNumbersList.Count > 0)
+            {
+                String message = String.Empty;
                 foreach (int i in NegativeNumbersList)
                 {
-                    message+= i + ",";
+                    message += i + ",";
                 }
-                message=message.Remove(message.Length - 1);
+                message = message.Remove(message.Length - 1);
                 throw new ArgumentException
-                    ("negatives are not allowed :"+message );
-                      
-                   
+                    ("negatives are not allowed :" + message);
+
+
             }
-            return number;
         }
     }
 }
