@@ -31,12 +31,16 @@ namespace StringCalculator.Core
                 string[] SubOfSub = sub.Split("\n");
                 foreach (String i in SubOfSub)
                 {
-                    if (number < 0)
+                    int Num = int.Parse(i);
+                    if (Num < 0)
                     {
-                        NegativeNumbersList.Add(number);
+                        NegativeNumbersList.Add(Num);
                     }
-                   
-                    number += int.Parse(i);
+                    if(Num >= 1000)
+                    {
+                        Num = 0;
+                    }
+                     number += Num;
                 }
             }
             CheckForNegative(NegativeNumbersList);
