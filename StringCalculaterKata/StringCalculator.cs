@@ -11,9 +11,9 @@ namespace StringCalculator.Core
             {
                 string[] items = v.Split("\n");
 
-                if (items[0].Length >= 2 && items[0].Substring(0, 1) == "\\" )
+                if (items[0].Length >= 2 && items[0].Substring(0, 2) == "//" )
                 {   
-                    return Delimate(v.Substring(items[0].Length+1), items[0].Substring(1));
+                    return Delimate(v.Substring(items[0].Length+1), items[0].Substring(2));
                 }
                 return Delimate(v, ",");
             }

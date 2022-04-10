@@ -42,7 +42,7 @@ namespace StringCalculator.Core.Test
             Assert.Equal(6, result);
         }
         [Theory]
-        [InlineData("\\,\n1\n2,3", 6)]
+        [InlineData("//;\n1;2", 3)]
         public void SupportAnyDelimeter(string input ,int output)
         {
             int result = stringCalculater.add(input);
